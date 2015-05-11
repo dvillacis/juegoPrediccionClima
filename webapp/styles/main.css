@@ -1,0 +1,26 @@
+html, body, #map {
+	font-family: 'RobotoDraft';
+}
+
+core-header-panel {
+	background: white;
+}
+
+core-toolbar {
+	background-color: #03A9F4;
+}
+
+core-animated-pages {
+	height: 100%;
+	width: 100%;
+}
+
+.cabecera {
+	position: relative;
+	box-sizing: border-box;
+	background-color: #00bbd3;
+}
+
+span {
+	color: white;
+}

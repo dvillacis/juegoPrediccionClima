@@ -1,0 +1,83 @@
+.dropArea {
+	height: 1000px;
+	width: 100%;
+}
+
+core-image {
+	height: 1000px;
+	width: 100%;
+}
+
+core-icon {
+	height: 60px;
+	width: 60px;
+}
+
+core-icon[icon="invert-colors"] {
+	color: darkblue;
+}
+
+core-icon[icon="image:wb-cloudy"] {
+	color: gray;
+}
+
+core-icon[icon="image:wb-sunny"] {
+	color: orange;
+}
+
+.big-icon {
+	height: 90px;
+	width: 90px;
+}
+
+.med-icon {
+	height: 60px;
+	width: 60px;
+}
+
+.small-icon {
+	height: 30px;
+	width: 30px;
+}
+
+.gameCanvas {
+	padding-top: 30px;
+	background-color: white;
+}
+
+.tabla {
+	padding-top: 50px;
+	padding-left: 100px;
+}
+
+th,td {
+	padding: 30px;
+}
+
+.box {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      margin: 16px;
+}
+
+.dropped {
+  position: absolute;
+  border: 1px solid black;
+  opacity: 0.8;
+  width: 25px;
+  height: 25px;
+  background-image: '../../images/layers.png';
+}
+
+img {
+	user-select: none;
+}
+
+.selectDisable {
+	-webkit-user-select: none;  
+	-khtml-user-select: none;   
+	-moz-user-select: none; 
+	-o-user-select: none;    
+	user-select: none; 
+}

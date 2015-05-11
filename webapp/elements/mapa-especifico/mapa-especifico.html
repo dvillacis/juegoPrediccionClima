@@ -1,0 +1,240 @@
+
+<polymer-element name="mapa-especifico" attributes="imgPath">
+	<template>
+		<link rel="stylesheet" href="mapa-especifico.css">
+		<div slide-up layout vertical>
+			<paper-button raised>
+				<core-icon icon="arrow-back"></core-icon>
+				Regresar
+				<a href="#"></a>
+			</paper-button>
+			<div layout horizontal center class="gameCanvas">
+				
+				<div id="drop" class="box" style="position: relative; width: 70%; height: 1000px;" draggable="false">
+					<core-image src="{{imgPath}}" sizing="contain"></core-image>
+				</div>
+				<div flex class="tabla">
+					<core-drag-drop></core-drag-drop>
+					<table>
+						<tr>
+							<td><core-icon id="smalldrop" icon="invert-colors" class="small-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="mediumdrop" icon="invert-colors" class="med-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="bigdrop" icon="invert-colors" class="big-icon" draggable="false"></core-icon></td>
+						</tr>
+						<tr>
+							<td><core-icon id="smallcloud" icon="image:wb-cloudy" class="small-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="mediumcloud" icon="image:wb-cloudy" class="med-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="bigcloud" icon="image:wb-cloudy" class="big-icon" draggable="false"></core-icon></td>
+						</tr>
+						<tr>
+							<td><core-icon id="smallsun" icon="image:wb-sunny" class="small-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="mediumsun" icon="image:wb-sunny" class="med-icon" draggable="false"></core-icon></td>
+							<td><core-icon id="bigsun" icon="image:wb-sunny" class="big-icon" draggable="false"></core-icon></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</template>
+	<script src="mapa-especifico.js"></script>
+	<script>
+		addEventListener('drag-start', function(e) {
+			var dragInfo = e.detail;
+			// flaw #2: e vs dragInfo.event
+			var color = dragInfo.event.target.style.backgroundColor;
+			console.log(dragInfo.event.target.id);
+
+			if (dragInfo.event.target.id === 'smalldrop') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 30px; height: 30px; border-radius: 30px; background-color: blue';
+			}
+			if (dragInfo.event.target.id === 'mediumdrop') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 60px; height: 60px; border-radius: 60px; background-color: blue';
+			}
+			if (dragInfo.event.target.id === 'bigdrop') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 90px; height: 90px; border-radius: 90px; background-color: blue';
+			}
+			if (dragInfo.event.target.id === 'smallcloud') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 30px; height: 30px; border-radius: 30px; background-color: gray';
+			}
+			if (dragInfo.event.target.id === 'mediumcloud') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 60px; height: 60px; border-radius: 60px; background-color: gray';
+			}
+			if (dragInfo.event.target.id === 'bigcloud') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 90px; height: 90px; border-radius: 90px; background-color: gray';
+			}
+			if (dragInfo.event.target.id === 'smallsun') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 30px; height: 30px; border-radius: 30px; background-color: yellow';
+			}
+			if (dragInfo.event.target.id === 'mediumsun') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 60px; height: 60px; border-radius: 60px; background-color: yellow';
+			}
+			if (dragInfo.event.target.id === 'bigsun') {
+				dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 90px; height: 90px; border-radius: 90px; background-color: yellow';
+			}
+
+			//dragInfo.avatar.style.cssText = 'border: 3px solid ' + color + '; width: 32px; height: 32px; border-radius: 32px; background-color: darkblue';
+			//e.detail.avatar.appendChild(document.querySelector('#hello'));
+			dragInfo.drag = function() {};
+			dragInfo.drop = drop;
+		});
+		//
+		function drop(dragInfo) {
+			var color = dragInfo.avatar.style.borderColor;
+			var dropTarget = dragInfo.event.relatedTarget;
+
+			var f = dragInfo.framed;
+			var d = document.createElement('div');
+			d.className = 'dropped';
+			d.style.left = f.x - 4 + 'px';
+			d.style.top = f.y -4 + 'px';
+
+			if (dragInfo.event.target.id === 'smalldrop') {
+				d.style.width= '30px';
+				d.style.height= '30px';
+				d.style.border = '5px solid darkblue';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/drop.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '30px');
+				img.setAttribute('width', '30px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'mediumdrop') {
+				d.style.width= '60px';
+				d.style.height= '60px';
+				d.style.border = '5px solid darkblue';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/drop.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '60px');
+				img.setAttribute('width', '60px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'bigdrop') {
+				d.style.width= '90px';
+				d.style.height= '90px';
+				d.style.border = '5px solid darkblue';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/drop.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '90px');
+				img.setAttribute('width', '90px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'smallcloud') {
+				d.style.width= '30px';
+				d.style.height= '20px';
+				d.style.border = '5px solid gray';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/cloud.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '20px');
+				img.setAttribute('width', '30px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'mediumcloud') {
+				d.style.width= '60px';
+				d.style.height= '50px';
+				d.style.border = '5px solid gray';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/cloud.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '50px');
+				img.setAttribute('width', '60px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'bigcloud') {
+				d.style.width= '90px';
+				d.style.height= '80px';
+				d.style.border = '5px solid gray';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/cloud.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '80px');
+				img.setAttribute('width', '90px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'smallsun') {
+				d.style.width= '30px';
+				d.style.height= '30px';
+				d.style.border = '5px solid orange';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/sun.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '30px');
+				img.setAttribute('width', '30px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'mediumsun') {
+				d.style.width= '60px';
+				d.style.height= '60px';
+				d.style.border = '5px solid orange';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/sun.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '60px');
+				img.setAttribute('width', '60px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+			if (dragInfo.event.target.id === 'bigsun') {
+				d.style.width= '90px';
+				d.style.height= '90px';
+				d.style.border = '5px solid orange';
+
+				var img = document.createElement('img');
+				img.setAttribute('src', '../../images/sun.png');
+				img.setAttribute('alt', 'na');
+				img.setAttribute('height', '90px');
+				img.setAttribute('width', '90px');
+				img.setAttribute('class', 'selectDisable');
+				img.setAttribute('draggable', 'false');
+				d.appendChild(img);
+			}
+
+			console.log(d);
+			
+
+			dropTarget.appendChild(d);
+
+			console.log(dropTarget);
+
+
+			// if (color && dropTarget.id === 'drop') {
+			// 	var f = dragInfo.framed;
+			// 	var d = document.createElement('div');
+			// 	d.className = 'dropped';
+			// 	d.style.left = f.x - 4 + 'px';
+			// 	d.style.top = f.y - 4 + 'px';
+			// 	d.style.backgroundColor = color;
+			// 	dropTarget.appendChild(d);
+			// 	dropTarget.style.backgroundColor = color;
+			// }
+		}
+
+	</script>
+</polymer-element>

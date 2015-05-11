@@ -1,0 +1,96 @@
+
+<polymer-element name="mapa-general">
+	<template>
+		<link rel="stylesheet" href="leaflet.css">
+		<link rel="stylesheet" href="mapa-general.css">
+		<!-- <p> Aqui va el mapa general </p> -->
+		<more-route-selector>
+			<core-animated-pages selected="{{page}}" transitions="hero-transition slide-up" id="pages" class="pages">
+				<section route="home">
+					<div slide-up>
+						<div id="map"></div>
+						<!-- <div flex>
+							<detalles-provincia selected_provincia="{{selected_provincia}}"></detalles-provincia>
+						</div> -->
+					</div>
+				</section>
+				<section route="esmeraldas">
+					<mapa-especifico imgPath="../../images/capas/esmeraldas_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="galapagos">
+					<mapa-especifico imgPath="../../images/capas/galapagos_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="napo">
+					<mapa-especifico imgPath="../../images/capas/napo_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="pichincha">
+					<mapa-especifico imgPath="../../images/capas/pichincha_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="imbabura">
+					<mapa-especifico imgPath="../../images/capas/imbabura_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="carchi">
+					<mapa-especifico imgPath="../../images/capas/carchi_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="sucumbios">
+					<mapa-especifico imgPath="../../images/capas/sucumbios_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="orellana">
+					<mapa-especifico imgPath="../../images/capas/orellana_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="manabi">
+					<mapa-especifico imgPath="../../images/capas/manabi_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="santaelena">
+					<mapa-especifico imgPath="../../images/capas/santa_elena_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="guayas">
+					<mapa-especifico imgPath="../../images/capas/guayas_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="azuay">
+					<mapa-especifico imgPath="../../images/capas/azuay_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="canar">
+					<mapa-especifico imgPath="../../images/capas/canar_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="losrios">
+					<mapa-especifico imgPath="../../images/capas/los_rios_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="bolivar">
+					<mapa-especifico imgPath="../../images/capas/bolivar_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="chimborazo">
+					<mapa-especifico imgPath="../../images/capas/chimborazo_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="moronasantiago">
+					<mapa-especifico imgPath="../../images/capas/morona_santiago_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="tungurahua">
+					<mapa-especifico imgPath="../../images/capas/tungurahua_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="cotopaxi">
+					<mapa-especifico imgPath="../../images/capas/cotopaxi_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="loja">
+					<mapa-especifico imgPath="../../images/capas/loja_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="pastaza">
+					<mapa-especifico imgPath="../../images/capas/pastaza_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="zamorachinchipe">
+					<mapa-especifico imgPath="../../images/capas/zamora_chinchipe_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="santodomingodelostsachilas">
+					<mapa-especifico imgPath="../../images/capas/santo_domingo_delos_tsachilas_acumulada.png"></mapa-especifico>
+				</section>
+				<section route="eloro">
+					<mapa-especifico imgPath="../../images/capas/el_oro_acumulada.png"></mapa-especifico>
+				</section>
+			</core-animated-pages>
+		</more-route-selector>
+	</template>	
+	<!-- <script src="../../geojson/provincias_ec.js" type="text/javascript"></script> -->
+	<script src="leaflet.js"></script>
+	<script src="mapa-general.js"></script>
+	<!-- <script src="dragdrop.js"></script> -->
+</polymer-element>
